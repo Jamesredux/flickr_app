@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
 
   def groups
   end
+
+  def search
+  	
+  end
 end

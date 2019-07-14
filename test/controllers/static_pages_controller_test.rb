@@ -11,4 +11,8 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get search" do 
+  	get static_pages_search_url
+  	assert_response :success
+  end	
 end
