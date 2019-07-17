@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+If you input a flickr ID it will return that users photos. (I have limited this to the first 50 photos)

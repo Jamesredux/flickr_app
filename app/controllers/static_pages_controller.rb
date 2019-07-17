@@ -9,7 +9,8 @@ class StaticPagesController < ApplicationController
 
   def home
   	if params[:user_id]
-  		@user_id = params[:user_id]
+  		@user_id = flickr.people.getInfo(:user_id => params[:user_id])
+  		
   		get_pics_by_id
   		#here call method that you will store in helper
   		#to search for photos
