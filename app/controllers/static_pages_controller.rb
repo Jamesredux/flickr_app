@@ -1,8 +1,8 @@
 class StaticPagesController < ApplicationController
 	include StaticPagesHelper
 
- #   FlickRaw.api_key = ENV["FLICKRAW_API_KEY"]
- #   FlickRaw.shared_secret = ENV["FLICKRAW_SHARED_SECRET"]
+    FlickRaw.api_key = ENV["FLICKRAW_API_KEY"]
+    FlickRaw.shared_secret = ENV["FLICKRAW_SHARED_SECRET"]
  #   flickr.photos.search(user_id: user_id)
   #may not need above as flickraw should automatically search for the keys in ENV?
 
@@ -10,6 +10,7 @@ class StaticPagesController < ApplicationController
   def home
   	if params[:user_id]
   		@user_id = params[:user_id]
+  		get_pics_by_id
   		#here call method that you will store in helper
   		#to search for photos
   	end	
