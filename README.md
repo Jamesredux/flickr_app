@@ -25,3 +25,8 @@ Things you may want to cover:
 
 
 If you input a flickr ID it will return that users photos. (I have limited this to the first 50 photos)
+
+TO DO:
+Create cover  for failures incorrect user id etc
+tag search
+other features

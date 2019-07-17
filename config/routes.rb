@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get 'static_pages/search'
 	get 'static_pages/groups'
 
-	get 'search', to: 'static_pages#home'
+	get 'search', to: 'static_pages#search'
 
 end

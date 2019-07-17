@@ -3,5 +3,28 @@
 
 <h1>Search</h1>
 <p>
-  Here I hope to be able to search a tag and return a selection of photos that match that tag
+
+<%= form_tag('/search', method: :get) do %>
+  <%= label_tag 'Search By Tag' %>
+  <br>
+  <%= text_field_tag :tag %>
+  <%= submit_tag 'Search for photos' %>
+<% end %>
+
+
+<% if params[:tag] %>
+	
+	
+
+
+
+
+		<% @photos.each do |photo| %>
+			<% info = flickr.photos.getInfo(:photo_id => photo.id) %>
+			<%= link_to image_tag(FlickRaw.url_m(info)), FlickRaw.url_b(info) %>	
+		<% end  %>
+
+		
+	
+<% end %>	
 </p>
