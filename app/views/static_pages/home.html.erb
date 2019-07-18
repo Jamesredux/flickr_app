@@ -24,6 +24,28 @@
 	
 <% end %>	
 
+<%= form_tag('/', method: :get) do %>
+ 
+
+  <%= text_field_tag :todays_pics %>
+  <%= submit_tag 'Load  Photos' %>
+<% end %>
+
+<% if params[:todays_pics] %>
+	<%= @todays_date %> 
+	
+	
+
+
+
+		<% @photos.each do |photo| %>
+			<% info = flickr.photos.getInfo(:photo_id => photo.id) %>
+			<%= link_to image_tag(FlickRaw.url_m(info)), FlickRaw.url_b(info) %>	
+		<% end  %>
+
+		
+	
+<% end %>	
 
 
 	<li><%= link_to "Search by Tag", static_pages_search_path %></li>

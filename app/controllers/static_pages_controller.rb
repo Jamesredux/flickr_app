@@ -12,6 +12,9 @@ class StaticPagesController < ApplicationController
   		@user_id = flickr.people.getInfo(:user_id => params[:user_id])
 
   		get_pics_by_id
+    elsif params[:todays_pics]
+      get_todays_pics
+      
   		#here call method that you will store in helper
   		#to search for photos
   	end	
