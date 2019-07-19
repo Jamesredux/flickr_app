@@ -1,5 +1,9 @@
+<div class="center jumbotron">
+	<h1>Welcome to the Flicka App</h1>
 
+	<%= link_to "Search Now", '#', class: "btn btn-lg btn-primary" %>
 
+</div>	
 
 <%= form_tag('/', method: :get) do %>
   <%= label_tag 'Search By ID' %>
@@ -27,8 +31,8 @@
 <%= form_tag('/', method: :get) do %>
  
 
-  <%= text_field_tag :todays_pics %>
-  <%= submit_tag 'Load  Photos' %>
+
+  <%= submit_tag :todays_pics %>
 <% end %>
 
 <% if params[:todays_pics] %>
@@ -47,6 +51,6 @@
 	
 <% end %>	
 
-
+	<li><%= link_to "A selection of Pictures taken today", static_pages_todayspics_path %></li>
 	<li><%= link_to "Search by Tag", static_pages_search_path %></li>
 	<li><%= link_to "Home", root_path %></li>

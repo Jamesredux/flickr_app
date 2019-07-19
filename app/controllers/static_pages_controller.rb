@@ -14,7 +14,7 @@ class StaticPagesController < ApplicationController
   		get_pics_by_id
     elsif params[:todays_pics]
       get_todays_pics
-      
+        
   		#here call method that you will store in helper
   		#to search for photos
   	end	
@@ -27,6 +27,10 @@ class StaticPagesController < ApplicationController
   	if params[:tag]
   		get_pics_by_tag
   	end	
+  end
+
+  def todayspics
+    get_todays_pics
   end
 end
 
