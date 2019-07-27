@@ -12,4 +12,9 @@ module StaticPagesHelper
 		@todays_date = DateTime.now-1
 		@photos = flickr.photos.search(min_taken_date: @todays_date.to_s, per_page: 50)
 	end
+
+	def search_by_date
+		@date_chosen = params[:datesearch]
+
+	end	
 end

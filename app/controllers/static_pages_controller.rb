@@ -32,6 +32,16 @@ class StaticPagesController < ApplicationController
   def todayspics
     get_todays_pics
   end
+
+  def datesearch
+    if params[:datesearch]
+      search_by_date
+    end  
+  end  
+
+  def authtest
+
+  end  
 end
 
 

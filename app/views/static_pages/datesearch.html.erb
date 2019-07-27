@@ -1,0 +1,14 @@
+<h1>Find Pictures By Date Taken</h1>
+
+
+<%= form_tag('/datesearch', method: :get) do %>
+  <%= label_tag 'Search By Date Taken' %>
+  <br>
+  <%= date_field_tag :datesearch %>
+  <%= submit_tag 'Search for Photos' %>
+<% end %>
+
+<% if params[:datesearch] %>
+	<%= @date_chosen %>
+	<p> This is the date chosen </p>
+<% end %>	
