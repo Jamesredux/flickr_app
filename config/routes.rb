@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 	get 'static_pages/groups'
 	get 'static_pages/todayspics'
 	get 'static_pages/datesearch'
-	get 'static_pages/authtest'
+	get 'static_pages/about'
 
 	get 'search', to: 'static_pages#search'
 	get 'datesearch', to: 'static_pages#datesearch'
-
+	
 
 end

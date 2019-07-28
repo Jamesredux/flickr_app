@@ -8,15 +8,12 @@ class StaticPagesController < ApplicationController
 
 
   def home
-  	if params[:user_id]
-  		@user_id = flickr.people.getInfo(:user_id => params[:user_id])
+  	if !params[:user_id].blank?
 
-  		get_pics_by_id
-    elsif params[:todays_pics]
-      get_todays_pics
-        
-  		#here call method that you will store in helper
-  		#to search for photos
+  		@user_id = flickr.people.getInfo(:user_id => params[:user_id])
+     
+  	     	get_pics_by_id
+
   	end	
   end
 
@@ -24,7 +21,7 @@ class StaticPagesController < ApplicationController
   end
 
   def search
-  	if params[:tag]
+  	if !params[:tag].blank?
   		get_pics_by_tag
   	end	
   end
@@ -39,10 +36,7 @@ class StaticPagesController < ApplicationController
     end  
   end  
 
-  def authtest
 
-  end  
 end
 
 
-#https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=e2a754b54b18e3e9a1b2952b0b3544e3&user_id=28289555%40N03

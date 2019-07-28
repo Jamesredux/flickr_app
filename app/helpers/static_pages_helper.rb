@@ -14,7 +14,10 @@ module StaticPagesHelper
 	end
 
 	def search_by_date
-		@date_chosen = params[:datesearch]
+		@date_chosen = DateTime.parse(params[:datesearch])
+		@max_date = @date_chosen+1
+		@photos = flickr.photos.search(min_taken_date: @date_chosen.to_s,
+																		 per_page: 50)
 
 	end	
 end

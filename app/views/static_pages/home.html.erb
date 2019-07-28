@@ -1,19 +1,23 @@
 <div class="center jumbotron">
 	<h1>Welcome to the Flicka App</h1>
+	<p>Input a Flickr ID below to access it's pictures.</p>
+	<p> Or you can use the links above to search by tag, or see a selection of pictures
+	uploaded to flickr today.</p>
 
-	<%= link_to "Search Now", '#', class: "btn btn-lg btn-primary" %>
-
-</div>	
-
-<%= form_tag('/', method: :get) do %>
+	<%= form_tag('/', method: :get) do %>
   <%= label_tag 'Search By ID' %>
   <br>
   <%= text_field_tag :user_id %>
-  <%= submit_tag 'Load my Photos' %>
+  <%= submit_tag 'Load Photos', class: "btn btn-lg btn-primary" %>
 <% end %>
+	
 
-<% if params[:user_id] %>
-	<%= @user_id %> 
+</div>	
+
+
+
+<% if !params[:user_id].blank? %>
+
 	
 	<h1><%= @user_id.username %> 's Photos </h1>
 
@@ -27,30 +31,3 @@
 		
 	
 <% end %>	
-
-<%= form_tag('/', method: :get) do %>
- 
-
-
-  <%= submit_tag :todays_pics %>
-<% end %>
-
-<% if params[:todays_pics] %>
-	<%= @todays_date %> 
-	
-	
-
-
-
-		<% @photos.each do |photo| %>
-			<% info = flickr.photos.getInfo(:photo_id => photo.id) %>
-			<%= link_to image_tag(FlickRaw.url_m(info)), FlickRaw.url_b(info) %>	
-		<% end  %>
-
-		
-	
-<% end %>	
-
-	<li><%= link_to "A selection of Pictures taken today", static_pages_todayspics_path %></li>
-	<li><%= link_to "Search by Tag", static_pages_search_path %></li>
-	<li><%= link_to "Home", root_path %></li>
